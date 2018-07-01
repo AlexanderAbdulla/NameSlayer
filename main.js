@@ -3,6 +3,9 @@ $(document).ready(function(){
 	
 	rootRef.on("child_added", snap => {
 		var name = snap.child("UserName").val(); 
+		var id = snap.key;
+
+		
 		//var c = document.getElementById("nameCanvas"); 
 		//var ctx = c.getContext("2d");
 		//ctx.font = "20px Arial";
@@ -13,6 +16,13 @@ $(document).ready(function(){
 		var nameNode = document.createElement("p"); 
 		var node = document.createTextNode(name); 
 		nameNode.appendChild(node);
+		nameNode.onclick = function() { 
+				console.log(name)
+				console.log(id);
+				rootRef.child(id).remove();
+				location.reload();
+				
+		};
 		var element = document.getElementById("nameCanvas");
 		if(rand == 1) {
 			element.append(nameNode); 
