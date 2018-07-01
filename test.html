@@ -1,8 +1,17 @@
 <html>
 <head>
 <title>Page Title</title>
+<script type="text/javascript">
+	var counter = 0
+	var timer;
+	function countUP () {
+	counter = counter + 1;//increment the counter by 1
+			//display the new value in the div
+	document.getElementById("yourScore").innerHTML = "Your Score: " + counter;
+ }
+</script>
 </head>
-<body>
+<body onload='timer=setInterval("countUP()", 1000 );'>
 
 <h1>NameSlayer</h1>
 
@@ -11,7 +20,7 @@
 	<br>
     <input type="submit" value="Enter User" class="submitButton">
 </form>
-<div id="prependCanvas"> </div>
+<div id="yourScore"> </div>
 <div id="nameCanvas"> </div>
 
 <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>

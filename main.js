@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 	var rootRef = firebase.database().ref().child("Users");
 	
@@ -31,6 +32,8 @@ $(document).ready(function(){
 		}
 		
 	});
+	
+	
 });
 
 //initialize firebase
