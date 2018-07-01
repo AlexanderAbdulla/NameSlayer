@@ -2,9 +2,18 @@ $(document).ready(function(){
 	var rootRef = firebase.database().ref().child("Users");
 	
 	rootRef.on("child_added", snap => {
-		var name = snap.child("Name"); 
-		var c = document.getElementById("nameCanvas"); 
-		
+		var name = snap.child("UserName").val(); 
+		//var c = document.getElementById("nameCanvas"); 
+		//var ctx = c.getContext("2d");
+		//ctx.font = "20px Arial";
+		var height = Math.floor((Math.random() * 200) + 1);
+		var width = Math.floor((Math.random() * 400) + 1);
+		//ctx.strokeText(name, width, height); 
+		var nameNode = document.createElement("p"); 
+		var node = document.createTextNode(name); 
+		nameNode.appendChild(node);
+		var element = document.getElementById("nameCanvas");
+		element.appendChild(nameNode); 
 	});
 });
 
