@@ -6,14 +6,20 @@ $(document).ready(function(){
 		//var c = document.getElementById("nameCanvas"); 
 		//var ctx = c.getContext("2d");
 		//ctx.font = "20px Arial";
-		var height = Math.floor((Math.random() * 200) + 1);
-		var width = Math.floor((Math.random() * 400) + 1);
+		//var height = Math.floor((Math.random() * 200) + 1);
+		//var width = Math.floor((Math.random() * 400) + 1);
 		//ctx.strokeText(name, width, height); 
+		var rand = Math.floor((Math.random() * 2) + 1);
 		var nameNode = document.createElement("p"); 
 		var node = document.createTextNode(name); 
 		nameNode.appendChild(node);
 		var element = document.getElementById("nameCanvas");
-		element.appendChild(nameNode); 
+		if(rand == 1) {
+			element.append(nameNode); 
+		} else {
+			element.prepend(nameNode); 
+		}
+		
 	});
 });
 
