@@ -1,5 +1,7 @@
 
+
 $(document).ready(function(){
+	
 	var rootRef = firebase.database().ref().child("Users");
 	
 	rootRef.on("child_added", snap => {
@@ -7,13 +9,7 @@ $(document).ready(function(){
 		var id = snap.key;
 
 		
-		//var c = document.getElementById("nameCanvas"); 
-		//var ctx = c.getContext("2d");
-		//ctx.font = "20px Arial";
-		//var height = Math.floor((Math.random() * 200) + 1);
-		//var width = Math.floor((Math.random() * 400) + 1);
-		//ctx.strokeText(name, width, height); 
-		var rand = Math.floor((Math.random() * 2) + 1);
+	var rand = Math.floor((Math.random() * 2) + 1);
 		var nameNode = document.createElement("p"); 
 		var node = document.createTextNode(name); 
 		nameNode.appendChild(node);
@@ -33,8 +29,16 @@ $(document).ready(function(){
 		
 	});
 	
+	setInterval(function() {
+			addPoint();
+	}, 5000);
 	
+
+
 });
+
+
+
 
 //initialize firebase
   var config = {
@@ -53,6 +57,9 @@ $(document).ready(function(){
   //Listen for form submit 
 document.getElementById('NameForm').addEventListener('submit', submitForm);
 
+
+
+
 function submitForm(e){ 
 	e.preventDefault();
 	var name = getInputVal("Username");
@@ -64,9 +71,38 @@ function getInputVal(id) {
 	return document.getElementById(id).value; 
 }
 
+//Function to save the name in firebase 
 function saveName(name) {
 	var newNameRef = nameRef.push();
 	newNameRef.set({
-		UserName: name
+		UserName: name,
+		Score: 0
 	});
+	
+	alert("HE"); 
+	
+	//function post() {
+		$.post('validate.php',  {postname:name},
+		function(data) 
+		{
+			//alert(data); 
+			location.reload();
+		});
+	//}
+}
+
+//Adds a point to your score 
+function addPoint() {
+	
+	//alert("1 point added");
+}
+
+function quit() {
+	alert("in quit"); 
+		$.post('quit.php',  {postname:name},
+		function(data) 
+		{
+			alert(data); 
+			location.reload();
+		});
 }
