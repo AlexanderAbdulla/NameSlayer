@@ -79,10 +79,11 @@ function saveName(name) {
 		Score: 0
 	});
 	
-	alert("HE"); 
+	var UID = newNameRef.getKey(); 
+	alert(UID); 
 	
 	//function post() {
-		$.post('validate.php',  {postname:name},
+		$.post('validate.php',  {postname:name, postUID:UID},
 		function(data) 
 		{
 			//alert(data); 
@@ -98,11 +99,10 @@ function addPoint() {
 }
 
 function quit() {
-	alert("in quit"); 
 		$.post('quit.php',  {postname:name},
 		function(data) 
 		{
-			alert(data); 
+			 
 			location.reload();
 		});
 }

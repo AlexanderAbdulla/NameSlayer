@@ -4,7 +4,7 @@ session_start();
 
 <html>
 <head>
-<title>Page Title</title>
+<title>Name Slayer</title>
 <script type="text/javascript">
 	
 </script>
@@ -35,7 +35,7 @@ session_start();
 <div id="yourScore"> </div>
 <div id="nameCanvas"> </div>
 
-<button onclick="quit()">Try it</button>
+<button onclick="quit()">Quit</button>
 
 <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
