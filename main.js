@@ -80,13 +80,13 @@ function saveName(name) {
 	});
 	
 	var UID = newNameRef.getKey(); 
-	alert(UID); 
+	//alert(UID); 
 	
 	//function post() {
 		$.post('validate.php',  {postname:name, postUID:UID},
 		function(data) 
 		{
-			//alert(data); 
+			alert(data); 
 			location.reload();
 		});
 	//}
@@ -94,7 +94,33 @@ function saveName(name) {
 
 //Adds a point to your score 
 function addPoint() {
+	//  var nameRef = firebase.database().ref('Users');
 	
+	$.post('returnUID.php',  {},
+		function(data) 
+		{
+			
+			var childRef = nameRef.child(data);
+			var childRefScore = childRef.child("Score");
+			var score; 
+			
+			childRefScore.on("value", function(snapshot) {
+				score = snapshot.val() + 1;
+				
+			});
+			
+			childRef.set({
+				Score: score
+			});
+			
+			
+			alert(score); 
+			//location.reload();
+		}
+		
+		);
+		
+	//nameRef.ref(
 	//alert("1 point added");
 }
 
