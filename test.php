@@ -29,6 +29,7 @@ session_start();
 ?>
 
 <div id="userName"> Username: <?php echo $_SESSION['name'] ?> </div>
+<div id="userScore"> Score: <?php echo $_SESSION['score'] ?> </div>
 
 <?php endif; ?>
 

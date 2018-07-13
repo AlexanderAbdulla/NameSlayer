@@ -107,6 +107,7 @@ function addPoint() {
 			childRefScore.on("value", function(snapshot) {
 				score = snapshot.val() + 1;
 				
+				
 			});
 			
 			childRef.set({
@@ -114,12 +115,12 @@ function addPoint() {
 			});
 			
 			
-			alert(score); 
+			//alert(score);
+			document.getElementById("userScore").innerHTML = "Score: " + score;  
 			//location.reload();
 		}
 		
-		);
-		
+		);	
 	//nameRef.ref(
 	//alert("1 point added");
 }
