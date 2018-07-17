@@ -5,12 +5,15 @@ $(document).ready(function(){
 	var rootRef = firebase.database().ref().child("Users");
 	
 	rootRef.on("child_added", snap => {
-		var name = snap.child("UserName").val(); 
+		var name = snap.child("UserName").val();
+		
+		var score = snap.child("Score").val();
 		var id = snap.key;
 
 		
 	var rand = Math.floor((Math.random() * 2) + 1);
 		var nameNode = document.createElement("p"); 
+		nameNode.id = id; 
 		var node = document.createTextNode(name); 
 		nameNode.appendChild(node);
 		nameNode.onclick = function() { 
@@ -32,6 +35,15 @@ $(document).ready(function(){
 	setInterval(function() {
 			addPoint();
 	}, 5000);
+	
+	// here is where we can try to do change by id?
+	//so the paragraphs have the right id, we can just search them, go on changed, and
+	// fuck hit up
+	rootRef.on("child_changed", snap=> {
+	
+		
+		
+	});
 	
 
 
@@ -110,9 +122,7 @@ function addPoint() {
 				
 			});
 			
-			childRef.set({
-				Score: score
-			});
+			childRefScore.set(score);
 			
 			
 			//alert(score);
