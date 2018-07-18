@@ -14,7 +14,7 @@ $(document).ready(function(){
 	var rand = Math.floor((Math.random() * 2) + 1);
 		var nameNode = document.createElement("p"); 
 		nameNode.id = id; 
-		var node = document.createTextNode(name); 
+		var node = document.createTextNode(name + " " + score); 
 		nameNode.appendChild(node);
 		nameNode.onclick = function() { 
 				console.log(name)
@@ -40,8 +40,12 @@ $(document).ready(function(){
 	//so the paragraphs have the right id, we can just search them, go on changed, and
 	// fuck hit up
 	rootRef.on("child_changed", snap=> {
-	
-		
+		console.log("in child changed"); 
+		var id = snap.key; 
+		var name = snap.child("UserName").val();
+		var score = snap.child("Score").val();
+		console.log("the child changed is" + id); 
+		document.getElementById(id).innerHTML = name + " " + score; 
 		
 	});
 	
