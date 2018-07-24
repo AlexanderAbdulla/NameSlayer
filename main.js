@@ -49,6 +49,12 @@ $(document).ready(function(){
 		
 	});
 	
+	rootRef.on("child_removed", function(snapshot) {
+		//var deletedPost = snapshot.val();
+		console.log("a child has been removed");
+		location.reload();
+	});
+	
 
 
 });
