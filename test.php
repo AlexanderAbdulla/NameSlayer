@@ -8,6 +8,7 @@ session_start();
 <script type="text/javascript">
 	
 </script>
+ <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
@@ -37,6 +38,9 @@ session_start();
 <div id="nameCanvas"> </div>
 
 <button onclick="quit()">Quit</button>
+
+<div id="page_container"></div>
+<input type="button" onclick="randomImage()" value="click here to place random image">
 
 <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

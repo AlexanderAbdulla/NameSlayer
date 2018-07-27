@@ -1,0 +1,6 @@
+#page_container {position: relative;
+    width: 400px;
+    height: 300px;
+    border: 2px dashed gray;
+}
+#page_container img {position: absolute;}

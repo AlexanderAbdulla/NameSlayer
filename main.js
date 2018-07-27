@@ -153,3 +153,34 @@ function quit() {
 			location.reload();
 		});
 }
+
+// random images
+
+var imgUrl  = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSbRxjSYv-0NsfjJGHrzyRQELdVsDxfUyMdjJRVQVwd46bOkbviM_ntWw";
+window.randomImage = function() {
+    var elem = document.createElement("p");
+    var container = document.getElementById("page_container");
+    var availW = container.offsetWidth  - 60;
+    var availH = container.offsetHeight  - 60;
+    var randomY = Math.round(Math.random() * availH) + 'px';
+    var randomX = Math.round(Math.random() * availW) + 'px';
+	
+	elem.innerHTML = "test";
+	elem.style.position = "absolute";
+	
+	//var x = document.createElement("FIGCAPTION");
+	//x.innerHTML = "test";
+	//var z = document.createElement("img");
+	//z.src = imgUrl;
+	//elem.appendChild(z);
+	//elem.appendChild(x);
+	
+//elem.src = imgUrl;
+elem.setAttribute("height", "60");
+elem.setAttribute("width", "60");
+elem.style.left = randomX;
+elem.style.top = randomY;
+
+    container.appendChild(elem);
+}
+
